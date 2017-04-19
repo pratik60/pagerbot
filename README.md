@@ -55,6 +55,26 @@ docker-compose up --build pagerbot-admin
 docker-compose up --build pagerbot
 ```
 
+If you want to play with this in the console, follow the steps below
+
+```bash
+  bundle install
+  # Open up localhost:4567, where you can set up pagerduty and bot credentials. Necessary for testing functionality on the console/bot. Scrolling through different pages, will populate your mongo database with users and schedules.
+  ruby lib/pagerbot.rb admin
+  # Run the bot itself locally
+  ruby lib/pagerbot.rb
+```
+
+Within the irb
+```ruby
+  require_relative 'lib/pagerbot'
+  require_relative 'lib/admin/admin_server'
+  PagerBot.reload_configuration!
+  # For example:
+  PagerBot.process("who is on primary now?", {:nick=>"username", :adapter=>:slack})
+```
+
+
 Deploying via heroku
 =======
 
