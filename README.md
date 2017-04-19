@@ -74,7 +74,6 @@ Within the irb
   PagerBot.process("who is on primary now?", {:nick=>"username", :adapter=>:slack})
 ```
 
-
 Deploying via heroku
 =======
 
